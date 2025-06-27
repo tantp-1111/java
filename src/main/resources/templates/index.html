@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,10 @@ body {
     min-height: 100vh;
 }
 
+@keyframes bobbing {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
 
 .baby-image {
     width: 60%;
@@ -21,23 +25,14 @@ body {
     height: auto;
     display: block;
     margin: 0 auto;
-    
+    animation: bobbing 2s ease-in-out infinite;
 }
 
 .baby-container {
     margin: 20px 0;
 }
 
-.result-text {
-    text-align: center;
-    font-size: 48px;
-    font-weight: bold;
-    color: #FF4500;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.back-button {
+.fortune-button {
     background: white;
     border: 3px solid #4CAF50;
     color: #4CAF50;
@@ -50,26 +45,26 @@ body {
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
-	margin: 20px auto;
 }
 
-.back-button:hover {
+.fortune-button:hover {
     background: #4CAF50;
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }
 
-.back-button:active {
+.fortune-button:active {
     transform: translateY(0);
     box-shadow: 0 2px 6px rgba(76, 175, 80, 0.2);
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #556b2f;
     margin-bottom: 30px;
-    font-size: 32px;
+    font-size: 40px;
+	font-weight: bold;
 }
 
 .main-content {
@@ -82,14 +77,13 @@ h1 {
     font-size: 18px;
 }
 
-
 /* スマホ用のメディアクエリ */
 @media (max-width: 600px) {
     .baby-image {
         width: 80%;
     }
 
-    .back-button {
+    .fortune-button {
         width: 60%;
         font-size: 18px;
     }
@@ -97,34 +91,30 @@ h1 {
     .title-text {
         font-size: 16px;
     }
-	
-	.result-text {
-	        font-size: 36px;
-	    }
-		
-	h1 {
-	       font-size: 26px;
-	   }
-   
+
+    h1 {
+        font-size: 26px;
+    }
 }
 </style>
 </head>
-<body>
-	<div class="main-content">
-		<div class="result-text">大吉！！</div>
-	    <div class="title-text">
-	        スゥー・・・スゥー・・・<br><br>
-			(おめでとう！今のうちにやりたいことやっちゃおう！)
-	        <br>
-			
-	    </div>
-	    
-	    <div class="baby-container">
-	        <img src="/images/babysleep.png" alt="赤ちゃんのイラスト" title="赤ちゃん" class="baby-image">
-	    </div>
-		<a href="/" class="back-button" aria-label="トップに戻る">トップに戻る</a>
-	   
-	</div>
 
+<body>
+<h1>赤子占い</h1>
+<div class="main-content">
+    <div class="title-text">
+        * 赤子ばぶばぶ気分占い *<br><br>
+    </div>
+    
+    <div class="baby-container">
+        <img src="/images/baby.png" alt="赤ちゃんのイラスト" title="赤ちゃん" class="baby-image">
+    </div>
+    
+    <div class="title-text">
+        今の気分は・・・・<br><br><br>
+    </div>
+    
+    <a href="/fortune" class="fortune-button" role="button" aria-label="占いスタート">ん〜</a>
+</div>
 </body>
 </html>
