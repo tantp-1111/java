@@ -1,8 +1,8 @@
 # ビルド用イメージ
-FROM gradle:8.0.2-jdk17 AS build
+FROM gradle:8.7.0-jdk17 AS build
 WORKDIR /home/gradle/project
 COPY --chown=gradle:gradle . .
-RUN gradle bootJar --no-daemon
+RUN ./gradlew bootJar --no-daemon
 
 # 実行用イメージ
 FROM eclipse-temurin:17-jdk
